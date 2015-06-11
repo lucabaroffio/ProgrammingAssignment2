@@ -1,10 +1,17 @@
 ## Put comments here that give an overall description of what your
 ## functions do
 
-## Write a short comment describing this function
+## Check if two matrices are equal
 
 matequal <- function(x, y)
   is.matrix(x) && is.matrix(y) && dim(x) == dim(y) && all(x == y)
+
+## Create a special object containing a matrix whose values and whose inverse can be cached
+## functions:
+## set(y)
+## get()
+## setInv(inv)
+## getInv()
 
 makeCacheMatrix <- function(x = matrix()) {
   x.inv <- NULL
@@ -23,10 +30,10 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Write a short comment describing this function
+## Compute the inverse of the matrix. If it has already been computed, return the cached result
 
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+  ## Return a matrix that is the inverse of 'x'
   x.inv <- x$getInv()
   if(!is.null(x.inv)) {
     message("getting cached data")
